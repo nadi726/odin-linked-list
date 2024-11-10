@@ -9,4 +9,23 @@ class Node
     @value = nil
     @next_node = nil
   end
+
+  def self.make(value, next_node)
+    node = Node.new
+    node.value = value
+    node.next_node = next_node
+    node
+  end
+
+  def append(value)
+    if @next_node.nil?
+      @next_node = Node.make(value, nil)
+      return
+    end
+    @next_node.append(value)
+  end
+
+  def size
+    @next_node.nil? ? 1 : 1 + @next_node.size
+  end
 end
