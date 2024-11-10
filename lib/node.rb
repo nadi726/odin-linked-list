@@ -28,4 +28,8 @@ class Node
   def size
     @next_node.nil? ? 1 : 1 + @next_node.size
   end
+
+  def end?
+    @next_node.nil?
+  end
 end
